@@ -9,11 +9,21 @@ Route::get('/home', function () {
     return view('front-pages.landingpage');
 });
 Route::get('/login', function () {
-    return view('auth.login');
+    $title = [
+        'title' => 'Login - Pages | NexGenbot Hospital',
+    ];
+
+    return view('auth.login', $title);
 });
 Route::get('/register', function () {
-    return view('auth.register');
+    $title = [
+        'title' => 'Register - Pages | NexGenbot Hospital',
+    ];
+    return view('auth.register', $title);
 });
 Route::get('/forgot-password', function () {
-    return view('auth.forgot-password');
+    $title = [
+        'title' => 'Forgot Password - Pages | NexGenbot Hospital',
+    ];
+    return view('auth.forgot-password', $title);
 });
