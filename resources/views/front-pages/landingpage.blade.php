@@ -5,7 +5,7 @@
   class="light-style layout-navbar-fixed layout-wide"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../../assets/"
+  data-assets-path="{{ asset('/assets') }}/"
   data-template="front-pages"
   data-style="light">
   <head>
@@ -19,7 +19,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/netgenbot_logo.png" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('/assets') }}/img/favicon/netgenbot_logo.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,40 +28,40 @@
       href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
       rel="stylesheet" />
 
-    <link rel="stylesheet" href="../../assets/vendor/fonts/tabler-icons.css" />
+    <link rel="stylesheet" href="{{ asset('/assets') }}/vendor/fonts/tabler-icons.css" />
 
     <!-- Core CSS -->
 
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../../assets/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ asset('/assets') }}/vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('/assets') }}/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
 
-    <link rel="stylesheet" href="../../assets/css/demo.css" />
+    <link rel="stylesheet" href="{{ asset('/assets') }}/css/demo.css" />
 
-    <link rel="stylesheet" href="../../assets/vendor/css/pages/front-page.css" />
+    <link rel="stylesheet" href="{{ asset('/assets') }}/vendor/css/pages/front-page.css" />
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../../assets/vendor/libs/node-waves/node-waves.css" />
+    <link rel="stylesheet" href="{{ asset('/assets') }}/vendor/libs/node-waves/node-waves.css" />
 
-    <link rel="stylesheet" href="../../assets/vendor/libs/nouislider/nouislider.css" />
-    <link rel="stylesheet" href="../../assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="{{ asset('/assets') }}/vendor/libs/nouislider/nouislider.css" />
+    <link rel="stylesheet" href="{{ asset('/assets') }}/vendor/libs/swiper/swiper.css" />
 
     <!-- Page CSS -->
 
-    <link rel="stylesheet" href="../../assets/vendor/css/pages/front-page-landing.css" />
+    <link rel="stylesheet" href="{{ asset('/assets') }}/vendor/css/pages/front-page-landing.css" />
 
     <!-- Helpers -->
-    <script src="../../assets/vendor/js/helpers.js"></script>
+    <script src="{{ asset('/assets') }}/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
-    <script src="../../assets/vendor/js/template-customizer.js"></script>
+    <script src="{{ asset('/assets') }}/vendor/js/template-customizer.js"></script>
 
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../../assets/js/front-config.js"></script>
+    <script src="{{ asset('/assets') }}/js/front-config.js"></script>
   </head>
 
   <body>
-    <script src="../../assets/vendor/js/dropdown-hover.js"></script>
-    <script src="../../assets/vendor/js/mega-dropdown.js"></script>
+    <script src="{{ asset('/assets') }}/vendor/js/dropdown-hover.js"></script>
+    <script src="{{ asset('/assets') }}/vendor/js/mega-dropdown.js"></script>
 
     <!-- Navbar: Start -->
     <nav class="layout-navbar shadow-none py-0">
@@ -83,7 +83,7 @@
             <!-- Mobile menu toggle: End-->
            <a href="/home" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <img src="../../assets/img/favicon/netgenbot_logo.png" alt="Logo NexGenbot" width="25" height="25">
+                <img src="{{ asset('/assets') }}/img/favicon/netgenbot_logo.png" alt="Logo NexGenbot" width="25" height="25">
               </span>
               <span class="app-brand-text demo menu-text fw-bold ms-2 ps-1">NexGenbot</span>
             </a>
@@ -345,7 +345,7 @@
                     <div class="col-lg-4 d-none d-lg-block">
                       <div class="bg-body nav-img-col p-2">
                         <img
-                          src="../../assets/img/front-pages/misc/nav-item-col-img.png"
+                          src="{{ asset('/assets') }}/img/front-pages/misc/nav-item-col-img.png"
                           alt="nav item col image"
                           class="w-100" />
                       </div>
@@ -409,7 +409,7 @@
       <section id="hero-animation">
         <div id="landingHero" class="section-py landing-hero position-relative">
           <img
-            src="../../assets/img/front-pages/backgrounds/hero-bg.png"
+            src="{{ asset('/assets') }}/img/front-pages/backgrounds/hero-bg.png"
             alt="hero background"
             class="position-absolute top-0 start-50 translate-middle-x object-fit-cover w-100 h-100"
             data-speed="1" />
@@ -427,13 +427,13 @@
               <a href="../vertical-menu-template/app-ecommerce-dashboard.html" target="_blank">
                 <div id="heroAnimationImg" class="position-relative hero-dashboard-img">
                   <img
-                    src="../../assets/img/front-pages/landing-page/landingimage.png"
+                    src="{{ asset('/assets') }}/img/front-pages/landing-page/landingimage.png"
                     alt="hero dashboard"
                     class="animation-img"
                     data-app-light-img="front-pages/landing-page/landingimage.png"
                     data-app-dark-img="front-pages/landing-page/landingimage.png" />
                   <img
-                    src="../../assets/img/front-pages/landing-page/landingimage.png"
+                    src="{{ asset('/assets') }}/img/front-pages/landing-page/landingimage.png"
                     alt="hero elements"
                     class="position-absolute hero-elements-img animation-img top-0 start-0"
                     data-app-light-img="front-pages/landing-page/landingimage.png"
@@ -458,19 +458,19 @@
           <div class="row align-items-center gx-0 gy-4 g-lg-5 mb-5 pb-md-5">
             <div class="col-md-6 col-lg-5 col-xl-3">
               <div class="mb-4">
-                <span class="badge bg-label-primary">Real Customers Reviews</span>
+                <span class="badge bg-label-primary">Real Patient Reviews</span>
               </div>
               <h4 class="mb-1">
                 <span class="position-relative fw-extrabold z-1"
                   >What people say
                   <img
-                    src="../../assets/img/front-pages/icons/section-title-icon.png"
+                    src="{{ asset('/assets') }}/img/front-pages/icons/section-title-icon.png"
                     alt="laptop charging"
                     class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" />
                 </span>
               </h4>
               <p class="mb-5 mb-md-12">
-                See what our customers have to<br class="d-none d-xl-block" />
+                See what our patient have to<br class="d-none d-xl-block" />
                 say about their experience.
               </p>
               <div class="landing-reviews-btns">
@@ -492,15 +492,18 @@
                     <div class="swiper-slide">
                       <div class="card h-100">
                         <div class="card-body text-body d-flex flex-column justify-content-between h-100">
+
+                          {{-- card --}}
+                          
                           <div class="mb-4">
                             <img
-                              src="../../assets/img/front-pages/branding/logo-1.png"
+                              src="{{ asset('/assets') }}/img/favicon/netgenbot_logo.png"
                               alt="client logo"
                               class="client-logo img-fluid" />
                           </div>
                           <p>
-                            “Vuexy is hands down the most useful front end Bootstrap theme I've ever used. I can't wait
-                            to use it again for my next project.”
+                            “Pelayanan di rumah sakit ini sangat memuaskan. Dokternya ramah dan perawatnya sangat perhatian.
+        Proses administrasi juga cepat dan mudah. Saya merasa sangat nyaman selama dirawat di sini.”
                           </p>
                           <div class="text-warning mb-4">
                             <i class="ti ti-star-filled"></i>
@@ -511,11 +514,11 @@
                           </div>
                           <div class="d-flex align-items-center">
                             <div class="avatar me-3 avatar-sm">
-                              <img src="../../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
+                              <img src="{{ asset('/assets') }}/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
                             </div>
                             <div>
-                              <h6 class="mb-0">Cecilia Payne</h6>
-                              <p class="small text-muted mb-0">CEO of Airbnb</p>
+                              <h6 class="mb-0">Budi Santoso</h6>
+                              <p class="small text-muted mb-0">Pasien Rawat Inap</p>
                             </div>
                           </div>
                         </div>
@@ -526,13 +529,12 @@
                         <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                           <div class="mb-4">
                             <img
-                              src="../../assets/img/front-pages/branding/logo-2.png"
+                              src="{{ asset('/assets') }}/img/favicon/netgenbot_logo.png"
                               alt="client logo"
                               class="client-logo img-fluid" />
                           </div>
                           <p>
-                            “I've never used a theme as versatile and flexible as Vuexy. It's my go to for building
-                            dashboard sites on almost any project.”
+                           “Saya datang ke IGD dalam kondisi darurat dan langsung ditangani dengan cepat dan profesional. Terima kasih kepada tim medis yang luar biasa!”
                           </p>
                           <div class="text-warning mb-4">
                             <i class="ti ti-star-filled"></i>
@@ -543,7 +545,7 @@
                           </div>
                           <div class="d-flex align-items-center">
                             <div class="avatar me-3 avatar-sm">
-                              <img src="../../assets/img/avatars/2.png" alt="Avatar" class="rounded-circle" />
+                              <img src="{{ asset('/assets') }}/img/avatars/2.png" alt="Avatar" class="rounded-circle" />
                             </div>
                             <div>
                               <h6 class="mb-0">Eugenia Moore</h6>
@@ -558,13 +560,12 @@
                         <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                           <div class="mb-4">
                             <img
-                              src="../../assets/img/front-pages/branding/logo-3.png"
+                              src="{{ asset('/assets') }}/img/favicon/netgenbot_logo.png"
                               alt="client logo"
                               class="client-logo img-fluid" />
                           </div>
                           <p>
-                            This template is really clean & well documented. The docs are really easy to understand and
-                            it's always easy to find a screenshot from their website.
+                           “Anak saya dirawat karena demam berdarah. Pelayanan dokter anak dan perawatnya sangat baik, sangat informatif dan sabar menghadapi orang tua yang khawatir.”
                           </p>
                           <div class="text-warning mb-4">
                             <i class="ti ti-star-filled"></i>
@@ -575,7 +576,7 @@
                           </div>
                           <div class="d-flex align-items-center">
                             <div class="avatar me-3 avatar-sm">
-                              <img src="../../assets/img/avatars/3.png" alt="Avatar" class="rounded-circle" />
+                              <img src="{{ asset('/assets') }}/img/avatars/3.png" alt="Avatar" class="rounded-circle" />
                             </div>
                             <div>
                               <h6 class="mb-0">Curtis Fletcher</h6>
@@ -590,13 +591,12 @@
                         <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                           <div class="mb-4">
                             <img
-                              src="../../assets/img/front-pages/branding/logo-4.png"
+                              src="{{ asset('/assets') }}/img/favicon/netgenbot_logo.png"
                               alt="client logo"
                               class="client-logo img-fluid" />
                           </div>
                           <p>
-                            All the requirements for developers have been taken into consideration, so I’m able to build
-                            any interface I want.
+                            “Proses pendaftaran dan pengambilan obat di apotek sangat tertib dan efisien. Tidak perlu antri lama seperti di tempat lain.”
                           </p>
                           <div class="text-warning mb-4">
                             <i class="ti ti-star-filled"></i>
@@ -607,7 +607,7 @@
                           </div>
                           <div class="d-flex align-items-center">
                             <div class="avatar me-3 avatar-sm">
-                              <img src="../../assets/img/avatars/4.png" alt="Avatar" class="rounded-circle" />
+                              <img src="{{ asset('/assets') }}/img/avatars/4.png" alt="Avatar" class="rounded-circle" />
                             </div>
                             <div>
                               <h6 class="mb-0">Sara Smith</h6>
@@ -622,13 +622,12 @@
                         <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                           <div class="mb-4">
                             <img
-                              src="../../assets/img/front-pages/branding/logo-5.png"
+                              src="{{ asset('/assets') }}/img/favicon/netgenbot_logo.png"
                               alt="client logo"
                               class="client-logo img-fluid" />
                           </div>
                           <p>
-                            “I've never used a theme as versatile and flexible as Vuexy. It's my go to for building
-                            dashboard sites on almost any project.”
+                           “Saya menjalani operasi kecil di rumah sakit ini. Semua proses dijelaskan dengan rinci dan saya sangat puas dengan hasilnya. Terima kasih atas pelayanan terbaiknya.”
                           </p>
                           <div class="text-warning mb-4">
                             <i class="ti ti-star-filled"></i>
@@ -639,7 +638,7 @@
                           </div>
                           <div class="d-flex align-items-center">
                             <div class="avatar me-3 avatar-sm">
-                              <img src="../../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                              <img src="{{ asset('/assets') }}/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
                             </div>
                             <div>
                               <h6 class="mb-0">Eugenia Moore</h6>
@@ -654,13 +653,12 @@
                         <div class="card-body text-body d-flex flex-column justify-content-between h-100">
                           <div class="mb-4">
                             <img
-                              src="../../assets/img/front-pages/branding/logo-6.png"
+                              src="{{ asset('/assets') }}/img/favicon/netgenbot_logo.png"
                               alt="client logo"
                               class="client-logo img-fluid" />
                           </div>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nemo mollitia, ad eum
-                            officia numquam nostrum repellendus consequuntur!
+                            “Petugas customer service sangat membantu menjawab semua pertanyaan saya mengenai jadwal dokter dan pemeriksaan laboratorium. Sangat recommended!”
                           </p>
                           <div class="text-warning mb-4">
                             <i class="ti ti-star-filled"></i>
@@ -671,7 +669,7 @@
                           </div>
                           <div class="d-flex align-items-center">
                             <div class="avatar me-3 avatar-sm">
-                              <img src="../../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
+                              <img src="{{ asset('/assets') }}/img/avatars/1.png" alt="Avatar" class="rounded-circle" />
                             </div>
                             <div>
                               <h6 class="mb-0">Sara Smith</h6>
@@ -690,59 +688,7 @@
           </div>
         </div>
         <!-- What people say slider: End -->
-        <hr class="m-0 mt-6 mt-md-12" />
-        <!-- Logo slider: Start -->
-        <div class="container">
-          <div class="swiper-logo-carousel py-8">
-            <div class="swiper" id="swiper-clients-logos">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img
-                    src="../../assets/img/front-pages/branding/logo_1-light.png"
-                    alt="client logo"
-                    class="client-logo"
-                    data-app-light-img="front-pages/branding/logo_1-light.png"
-                    data-app-dark-img="front-pages/branding/logo_1-dark.png" />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="../../assets/img/front-pages/branding/logo_2-light.png"
-                    alt="client logo"
-                    class="client-logo"
-                    data-app-light-img="front-pages/branding/logo_2-light.png"
-                    data-app-dark-img="front-pages/branding/logo_2-dark.png" />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="../../assets/img/front-pages/branding/logo_3-light.png"
-                    alt="client logo"
-                    class="client-logo"
-                    data-app-light-img="front-pages/branding/logo_3-light.png"
-                    data-app-dark-img="front-pages/branding/logo_3-dark.png" />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="../../assets/img/front-pages/branding/logo_4-light.png"
-                    alt="client logo"
-                    class="client-logo"
-                    data-app-light-img="front-pages/branding/logo_4-light.png"
-                    data-app-dark-img="front-pages/branding/logo_4-dark.png" />
-                </div>
-                <div class="swiper-slide">
-                  <img
-                    src="../../assets/img/front-pages/branding/logo_5-light.png"
-                    alt="client logo"
-                    class="client-logo"
-                    data-app-light-img="front-pages/branding/logo_5-light.png"
-                    data-app-dark-img="front-pages/branding/logo_5-dark.png" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Logo slider: End -->
-      </section>
-      <!-- Real customers reviews: End -->
+       
 
       <!-- Our great team: Start -->
       <section id="landingTeam" class="section-py landing-team">
@@ -754,7 +700,7 @@
             <span class="position-relative fw-extrabold z-1"
               >Supported
               <img
-                src="../../assets/img/front-pages/icons/section-title-icon.png"
+                src="{{ asset('/assets') }}/img/front-pages/icons/section-title-icon.png"
                 alt="laptop charging"
                 class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" />
             </span>
@@ -767,13 +713,13 @@
                 <div
                   class="bg-label-primary border border-bottom-0 border-label-primary position-relative team-image-box">
                   <img
-                    src="../../assets/img/front-pages/landing-page/team-member-1.png"
+                    src="{{ asset('/assets') }}/img/front-pages/landing-page/ilham.png"
                     class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl"
                     alt="human image" />
                 </div>
                 <div class="card-body border border-top-0 border-label-primary text-center">
-                  <h5 class="card-title mb-0">Sophie Gilbert</h5>
-                  <p class="text-muted mb-0">Project Manager</p>
+                  <h5 class="card-title mb-0">Ilham</h5>
+                  <p class="text-muted mb-0">Full Stuck Dev</p>
                 </div>
               </div>
             </div>
@@ -781,7 +727,7 @@
               <div class="card mt-3 mt-lg-0 shadow-none">
                 <div class="bg-label-info border border-bottom-0 border-label-info position-relative team-image-box">
                   <img
-                    src="../../assets/img/front-pages/landing-page/team-member-2.png"
+                    src="{{ asset('/assets') }}/img/front-pages/landing-page/team-member-2.png"
                     class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl"
                     alt="human image" />
                 </div>
@@ -796,7 +742,7 @@
                 <div
                   class="bg-label-danger border border-bottom-0 border-label-danger position-relative team-image-box">
                   <img
-                    src="../../assets/img/front-pages/landing-page/team-member-3.png"
+                    src="{{ asset('/assets') }}/img/front-pages/landing-page/team-member-3.png"
                     class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl"
                     alt="human image" />
                 </div>
@@ -811,7 +757,7 @@
                 <div
                   class="bg-label-success border border-bottom-0 border-label-success position-relative team-image-box">
                   <img
-                    src="../../assets/img/front-pages/landing-page/team-member-4.png"
+                    src="{{ asset('/assets') }}/img/front-pages/landing-page/team-member-4.png"
                     class="position-absolute card-img-position bottom-0 start-50 scaleX-n1-rtl"
                     alt="human image" />
                 </div>
@@ -837,7 +783,7 @@
             <div class="col-sm-6 col-lg-3">
               <div class="card border border-primary shadow-none">
                 <div class="card-body text-center">
-                  <img src="../../assets/img/front-pages/icons/laptop.png" alt="laptop" class="mb-4" />
+                  <img src="{{ asset('/assets') }}/img/front-pages/icons/laptop.png" alt="laptop" class="mb-4" />
                   <h3 class="mb-0">7.1k+</h3>
                   <p class="fw-medium mb-0">
                     Support Tickets<br />
@@ -849,7 +795,7 @@
             <div class="col-sm-6 col-lg-3">
               <div class="card border border-success shadow-none">
                 <div class="card-body text-center">
-                  <img src="../../assets/img/front-pages/icons/user-success.png" alt="laptop" class="mb-4" />
+                  <img src="{{ asset('/assets') }}/img/front-pages/icons/user-success.png" alt="laptop" class="mb-4" />
                   <h3 class="mb-0">50k+</h3>
                   <p class="fw-medium mb-0">
                     Join creatives<br />
@@ -861,7 +807,7 @@
             <div class="col-sm-6 col-lg-3">
               <div class="card border border-info shadow-none">
                 <div class="card-body text-center">
-                  <img src="../../assets/img/front-pages/icons/diamond-info.png" alt="laptop" class="mb-4" />
+                  <img src="{{ asset('/assets') }}/img/front-pages/icons/diamond-info.png" alt="laptop" class="mb-4" />
                   <h3 class="mb-0">4.8/5</h3>
                   <p class="fw-medium mb-0">
                     Highly Rated<br />
@@ -873,7 +819,7 @@
             <div class="col-sm-6 col-lg-3">
               <div class="card border border-warning shadow-none">
                 <div class="card-body text-center">
-                  <img src="../../assets/img/front-pages/icons/check-warning.png" alt="laptop" class="mb-4" />
+                  <img src="{{ asset('/assets') }}/img/front-pages/icons/check-warning.png" alt="laptop" class="mb-4" />
                   <h3 class="mb-0">100%</h3>
                   <p class="fw-medium mb-0">
                     Money Back<br />
@@ -898,7 +844,7 @@
             <span class="position-relative fw-extrabold z-1"
               >questions
               <img
-                src="../../assets/img/front-pages/icons/section-title-icon.png"
+                src="{{ asset('/assets') }}/img/front-pages/icons/section-title-icon.png"
                 alt="laptop charging"
                 class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" />
             </span>
@@ -910,7 +856,7 @@
             <div class="col-lg-5">
               <div class="text-center">
                 <img
-                  src="../../assets/img/front-pages/landing-page/faq-boy-with-logos.png"
+                  src="{{ asset('/assets') }}/img/front-pages/landing-page/faq-boy-with-logos.png"
                   alt="faq boy with logos"
                   class="faq-image" />
               </div>
@@ -1058,7 +1004,7 @@
             <span class="position-relative fw-extrabold z-1"
               >Let's work
               <img
-                src="../../assets/img/front-pages/icons/section-title-icon.png"
+                src="{{ asset('/assets') }}/img/front-pages/icons/section-title-icon.png"
                 alt="laptop charging"
                 class="section-title-img position-absolute object-fit-contain bottom-0 z-n1" />
             </span>
@@ -1069,11 +1015,11 @@
             <div class="col-lg-5">
               <div class="contact-img-box position-relative border p-2 h-100">
                 <img
-                  src="../../assets/img/front-pages/icons/contact-border.png"
+                  src="{{ asset('/assets') }}/img/front-pages/icons/contact-border.png"
                   alt="contact border"
                   class="contact-border-img position-absolute d-none d-lg-block scaleX-n1-rtl" />
                 <img
-                  src="../../assets/img/front-pages/landing-page/contact-customer-service.png"
+                  src="{{ asset('/assets') }}/img/front-pages/landing-page/contact-customer-service.png"
                   alt="contact customer service"
                   class="contact-img w-100 scaleX-n1-rtl" />
                 <div class="p-4 pb-2">
@@ -1155,7 +1101,7 @@
     <footer class="landing-footer bg-body footer-text">
       <div class="footer-top position-relative overflow-hidden z-1">
         <img
-          src="../../assets/img/front-pages/backgrounds/footer-bg-light.png"
+          src="{{ asset('/assets') }}/img/front-pages/backgrounds/footer-bg-light.png"
           alt="footer bg"
           class="footer-bg banner-bg-img z-n1"
           data-app-light-img="front-pages/backgrounds/footer-bg-light.png"
@@ -1260,10 +1206,10 @@
             <div class="col-lg-3 col-md-4">
               <h6 class="footer-title mb-6">Download our app</h6>
               <a href="javascript:void(0);" class="d-block mb-4"
-                ><img src="../../assets/img/front-pages/landing-page/apple-icon.png" alt="apple icon"
+                ><img src="{{ asset('/assets') }}/img/front-pages/landing-page/apple-icon.png" alt="apple icon"
               /></a>
               <a href="javascript:void(0);" class="d-block"
-                ><img src="../../assets/img/front-pages/landing-page/google-play-icon.png" alt="google play icon"
+                ><img src="{{ asset('/assets') }}/img/front-pages/landing-page/google-play-icon.png" alt="google play icon"
               /></a>
             </div>
           </div>
@@ -1284,16 +1230,16 @@
           </div>
           <div>
             <a href="https://github.com/pixinvent" class="me-3" target="_blank">
-              <img src="../../assets/img/front-pages/icons/github.svg" alt="github icon" />
+              <img src="{{ asset('/assets') }}/img/front-pages/icons/github.svg" alt="github icon" />
             </a>
             <a href="https://www.facebook.com/pixinvents/" class="me-3" target="_blank">
-              <img src="../../assets/img/front-pages/icons/facebook.svg" alt="facebook icon" />
+              <img src="{{ asset('/assets') }}/img/front-pages/icons/facebook.svg" alt="facebook icon" />
             </a>
             <a href="https://twitter.com/pixinvents" class="me-3" target="_blank">
-              <img src="../../assets/img/front-pages/icons/twitter.svg" alt="twitter icon" />
+              <img src="{{ asset('/assets') }}/img/front-pages/icons/twitter.svg" alt="twitter icon" />
             </a>
             <a href="https://www.instagram.com/pixinvents/" target="_blank">
-              <img src="../../assets/img/front-pages/icons/instagram.svg" alt="google icon" />
+              <img src="{{ asset('/assets') }}/img/front-pages/icons/instagram.svg" alt="google icon" />
             </a>
           </div>
         </div>
@@ -1303,20 +1249,20 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../../assets/vendor/js/bootstrap.js"></script>
-    <script src="../../assets/vendor/libs/node-waves/node-waves.js"></script>
+    <script src="{{ asset('/assets') }}/vendor/libs/popper/popper.js"></script>
+    <script src="{{ asset('/assets') }}/vendor/js/bootstrap.js"></script>
+    <script src="{{ asset('/assets') }}/vendor/libs/node-waves/node-waves.js"></script>
 
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../../assets/vendor/libs/nouislider/nouislider.js"></script>
-    <script src="../../assets/vendor/libs/swiper/swiper.js"></script>
+    <script src="{{ asset('/assets') }}/vendor/libs/nouislider/nouislider.js"></script>
+    <script src="{{ asset('/assets') }}/vendor/libs/swiper/swiper.js"></script>
 
     <!-- Main JS -->
-    <script src="../../assets/js/front-main.js"></script>
+    <script src="{{ asset('/assets') }}/js/front-main.js"></script>
 
     <!-- Page JS -->
-    <script src="../../assets/js/front-page-landing.js"></script>
+    <script src="{{ asset('/assets') }}/js/front-page-landing.js"></script>
   </body>
 </html>
