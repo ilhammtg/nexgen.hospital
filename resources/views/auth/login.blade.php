@@ -7,14 +7,25 @@
             <h4 class="mb-1">Welcome to NexGenbot! 👋</h4>
             <p class="mb-6">Please sign-in to your account!</p>
 
-            <form id="formAuthentication" class="mb-6" action="index.html" method="GET">
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $item)
+                    <li>{{ $item }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            @endif
+            <form id="formAuthentication" class="mb-6" action="" method="POST">
+              @csrf
               <div class="mb-6">
                 <label for="email" class="form-label">Email or Username</label>
                 <input
                   type="text"
                   class="form-control"
                   id="email"
-                  name="email-username"
+                  value="{{ old('email') }}"
+                  name="email"
                   placeholder="Enter your email or username"
                   autofocus />
               </div>

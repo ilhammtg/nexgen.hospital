@@ -6,16 +6,21 @@
             <h4 class="mb-1">Come be part of us now 🚀</h4>
             <p class="mb-6">Get an extraordinary experience from us!</p>
 
-            <form id="formAuthentication" class="mb-6" action="index.html" method="GET">
+           <form id="formAuthentication" class="mb-6" action="{{ route('register.userRegis') }}" method="POST">
+              @csrf
               <div class="mb-6">
-                <label for="username" class="form-label">Username</label>
+                <label for="name" class="form-label">Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="username"
-                  name="username"
-                  placeholder="Enter your username"
+                  id="name"
+                  name="name"
+                  placeholder="Enter full your name"
                   autofocus />
+              </div>
+              <div class="mb-6">
+                <label for="phone" class="form-label">No. Hp</label>
+                <input type="number" class="form-control" max="15" id="phone" name="phone" placeholder="Enter your phone number" />
               </div>
               <div class="mb-6">
                 <label for="email" class="form-label">Email</label>
@@ -29,7 +34,7 @@
                     id="password"
                     class="form-control"
                     name="password"
-                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                    placeholder="****************"
                     aria-describedby="password" />
                   <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
                 </div>
@@ -44,7 +49,7 @@
                   </label>
                 </div>
               </div>
-              <button class="btn btn-primary d-grid w-100">Sign up</button>
+              <button type="submit" class="btn btn-primary d-grid w-100">Sign up</button>
             </form>
 
             <p class="text-center">
