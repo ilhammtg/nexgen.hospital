@@ -1,5 +1,26 @@
 @include('auth.auth-header')
 
+ <div class="authentication-inner row m-0">
+        <!-- /Left Text -->
+        <div class="d-none d-lg-flex col-lg-8 p-0">
+          <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
+            <img
+              src="{{ asset('/assets') }}/img/illustrations/email-verify.png"
+              alt="auth-login-cover"
+              class="my-5 auth-illustration"
+              data-app-light-img="illustrations/email-verify.png"
+              data-app-dark-img="illustrations/email-verify.png" />
+
+            <img
+              src="{{ asset('/assets') }}/img/illustrations/bg-shape-image-light.png"
+              alt="auth-login-cover"
+              class="platform-bg"
+              data-app-light-img="illustrations/bg-shape-image-light.png"
+              data-app-dark-img="illustrations/bg-shape-image-dark.png" />
+          </div>
+        </div>
+        <!-- /Left Text -->
+
 <!-- Verify Email Page -->
 <div class="d-flex col-12 col-lg-4 align-items-center authentication-bg p-6 p-sm-12">
   <div class="w-px-400 mx-auto mt-12">

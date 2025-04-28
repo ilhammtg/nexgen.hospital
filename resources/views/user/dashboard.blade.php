@@ -4,8 +4,7 @@
 @section('content')
    
 <!-- Content -->
-<h1>User Dashboard </h1>
-<h1>{{ $user }}</h1>
+
 <div class="container-xxl flex-grow-1 container-p-y">
   <div class="row g-6">
     <!-- Card Border Shadow -->

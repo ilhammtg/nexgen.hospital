@@ -1,5 +1,27 @@
       @include('auth.auth-header')
 
+
+       <div class="authentication-inner row m-0">
+        <!-- /Left Text -->
+        <div class="d-none d-lg-flex col-lg-8 p-0">
+          <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
+            <img
+              src="{{ asset('/assets') }}/img/illustrations/registerimage.png"
+              alt="auth-login-cover"
+              class="my-5 auth-illustration"
+              data-app-light-img="illustrations/registerimage.png"
+              data-app-dark-img="illustrations/registerimage.png" />
+
+            <img
+              src="{{ asset('/assets') }}/img/illustrations/bg-shape-image-light.png"
+              alt="auth-login-cover"
+              class="platform-bg"
+              data-app-light-img="illustrations/bg-shape-image-light.png"
+              data-app-dark-img="illustrations/bg-shape-image-dark.png" />
+          </div>
+        </div>
+        <!-- /Left Text -->
+
         <!-- Register -->
         <div class="d-flex col-12 col-lg-4 align-items-center authentication-bg p-sm-12 p-6">
           <div class="w-px-400 mx-auto mt-12 pt-5">

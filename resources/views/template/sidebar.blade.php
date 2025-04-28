@@ -30,9 +30,14 @@
             <!-- Dashboards -->
             <li class="menu-item">
               <a href="/" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <i class="fas fa-fw fa-tachometer-alt me-2"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
                 {{-- <div class="badge bg-danger rounded-pill ms-auto">5</div> --}}
+              </a>
+            <li class="menu-item">
+              <a href="{{ route('users.biopasien') }}" class="menu-link">
+                <i class="far fa-fw fa-address-card me-2"></i>
+                <div data-i18n="Biodata">Biodata</div>
               </a>
               {{-- <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-smart-home"></i>
