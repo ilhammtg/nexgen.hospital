@@ -9,9 +9,12 @@ class AdminController extends Controller
 {
     public function index()
     {
+        $data = Auth::user();
         return view('admin.dashboard', [
             'title' => 'Dashboard Admin | NexgenBot Hospital",',
             'user' => Auth::user(),
+            'data' => $data,
+
         ]);
     }
 

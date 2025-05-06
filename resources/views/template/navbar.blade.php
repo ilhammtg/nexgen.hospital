@@ -422,8 +422,8 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <h6 class="mb-0">John Doe</h6>
-                            <small class="text-muted">Admin</small>
+                            <h6 class="mb-0">{{ $data -> name }}</h6>
+                            <small class="text-muted">{{ $data -> role }}</small>
                           </div>
                         </div>
                       </a>

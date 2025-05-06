@@ -14,10 +14,11 @@ use Illuminate\Auth\Events\PasswordReset;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\PasienController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
-//Test route to test email sending functionality
+// Test route to test email sending functionality
 // Route::get('/test-email', function () {
 //     Mail::raw('Ini email test SMTP dari Laravel 12.', function ($message) {
 //         $message->to('ilhamach2020@gmail.com')
@@ -126,11 +127,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->middleware('UserAccess:user');
     Route::get('/users/profile', [UserController::class, 'profile'])
         ->name('users.profile')->middleware('UserAccess:user');
-    Route::get('/users/biopasien', [UserController::class, 'BioPasien'])
+    Route::get('/users/biopasien', [PasienController::class, 'index'])
         ->name('users.biopasien')
         ->middleware('UserAccess:user');
-    Route::get('/users/form-biopasien', [UserController::class, 'formBioPasien'])
-        ->name('users.form-biopasien')
+    Route::get('/users/EditBiopasien/', [PasienController::class, 'edit'])
+        ->name('users.EditBiopasien')
+        ->middleware('UserAccess:user');
+    Route::put('/users/UpdateBiopasien/', [PasienController::class, 'update'])
+        ->name('users.UpdateBiopasien')
         ->middleware('UserAccess:user');
     Route::get('/logout', [SessionController::class, 'logout'])
         ->name('logout');

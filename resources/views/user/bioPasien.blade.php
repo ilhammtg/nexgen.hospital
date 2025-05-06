@@ -22,7 +22,7 @@
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label">NIK</label>
             <div class="col-sm-10">
-              <div class="form-control bg-light">{{ $data->nik }}</div>
+              <div class="form-control bg-light">{{ $data->pasien->nik ?? "-" }}</div>
             </div>
           </div>
 
@@ -36,33 +36,33 @@
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Alamat</label>
             <div class="col-sm-10">
-              <div class="form-control bg-light" style="min-height: 80px;">{{ $data->alamat }}</div>
+              <div class="form-control bg-light" style="min-height: 80px;">{{ $data->pasien->alamat ?? "-" }}</div>
             </div>
           </div>
 
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
             <div class="col-sm-10">
-              <div class="form-control bg-light">{{ $data->tgl_lahir }}</div>
+              <div class="form-control bg-light">{{$data->pasien->tanggal_lahir ?? "-" }}</div>
             </div>
           </div>
 
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
             <div class="col-sm-10">
-              <div class="form-control bg-light">{{ $data->jenis_kelamin }}</div>
+              <div class="form-control bg-light">{{$data->pasien->jenis_kelamin ?? "-" }}</div>
             </div>
           </div>
 
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label">No BPJS</label>
             <div class="col-sm-10">
-              <div class="form-control bg-light">{{ $data->no_bpjs }}</div>
+              <div class="form-control bg-light">{{ $data->pasien->no_bpjs ?? "-" }}</div>
             </div>
           </div>
                 <div class="row justify-content-end">
                           <div class="col-sm-10">
-                            <a href="{{ route('users.form-biopasien') }}" class="btn btn-primary">Edit Data</a>
+                            <a href="{{ route('users.EditBiopasien') }}" class="btn btn-primary">Edit Data</a>
                           </div>
                         </div>
                       </form>

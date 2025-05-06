@@ -28,12 +28,17 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboards -->
+
             <li class="menu-item">
               <a href="/" class="menu-link">
                 <i class="fas fa-fw fa-tachometer-alt me-2"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
                 {{-- <div class="badge bg-danger rounded-pill ms-auto">5</div> --}}
               </a>
+
+              {{-- delate this </li> if use menu-sub --}}
+            </li> 
+
             <li class="menu-item">
               <a href="{{ route('users.biopasien') }}" class="menu-link">
                 <i class="far fa-fw fa-address-card me-2"></i>
@@ -54,7 +59,6 @@
 
               </ul> --}}
             </li>
-
           
 
             <!-- Apps & Pages -->

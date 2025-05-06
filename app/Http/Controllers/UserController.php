@@ -12,10 +12,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = Auth::user()->name;
+        $data = Auth::user();
         return view('user.dashboard', [
             'title' => 'Dashboard - User | NexGenbot Hospital',
-            'user' => $user,
+            'user' => Auth::user(),
+            'data' => $data,
         ]);
     }
 
@@ -28,25 +29,6 @@ class UserController extends Controller
             'data' => $data,
             'title' => 'Profile - User | NexGenbot Hospital',
             'tanggalJoin' => $formattedDate,
-        ]);
-    }
-
-    public function BioPasien()
-    {
-        $userId = Auth::id();
-        $data = User::findOrFail($userId);
-        return view('user.bioPasien', [
-            'title' => 'Biopasien - User | NexGenbot Hospital',
-            'data' => $data,
-        ]);
-    }
-    public function formBioPasien()
-    {
-        $userId = Auth::id();
-        $data = User::findOrFail($userId);
-        return view('user.form-bioPasien', [
-            'title' => 'Form Biopasien - User | NexGenbot Hospital',
-            'data' => $data,
         ]);
     }
 }
