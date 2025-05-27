@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Auth\Events\Registered;
+use Laravel\Socialite\Facades\Socialite;
 
 class SessionController extends Controller
 {
@@ -73,6 +75,7 @@ class SessionController extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
+            'image' => 'default-avatar.png', // default image
             'password' => Hash::make($request->password),
         ]);
 
@@ -84,10 +87,67 @@ class SessionController extends Controller
         return redirect()->route('verification.notice'); // Redirect ke halaman verifikasi email
     }
 
+    // auth socialite like google, facebook, github
+    public function googleRedirect()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function googleCallback()
+    {
+        $googleUser = Socialite::driver('google')->user();
+
+        // Coba cari berdasarkan google_id terlebih dahulu
+        $user = User::where('google_id', $googleUser->id)->first();
+
+        // Jika belum ditemukan, coba cari berdasarkan email
+        if (!$user) {
+            $user = User::where('email', $googleUser->email)->first();
+        }
+
+        // Jika user belum ada, buat baru
+        if (!$user) {
+            $user = User::create([
+                'id' => Str::uuid(),
+                'name' => $googleUser->name,
+                'email' => $googleUser->email,
+                'image' => 'default-avatar.png', // default image
+                'phone' => '-', // default phone
+                'role' => 'user', // default role
+                'password' => Hash::make(Str::random(16)), // password acak
+                'email_verified_at' => now(),
+                'google_id' => $googleUser->id,
+                'google_token' => $googleUser->token,
+                'google_refresh_token' => $googleUser->refreshToken,
+            ]);
+        } else {
+            // Update token dan google_id jika sudah ada
+            $user->update([
+                'google_id' => $googleUser->id,
+                'google_token' => $googleUser->token,
+                'google_refresh_token' => $googleUser->refreshToken,
+            ]);
+        }
+
+        Auth::login($user);
+
+        // Redirect berdasarkan role
+        switch ($user->role) {
+            case 'admin':
+                return redirect('/admin');
+            case 'doctor':
+                return redirect('/admin/dokter');
+            case 'nurse':
+                return redirect('/admin/nurse');
+            case 'user':
+            default:
+                return redirect('/users');
+        }
+    }
+
 
     public function logout()
     {
-
         Auth::logout();
         return redirect('/login')->with('success', 'Logout successful');
     }

@@ -3,30 +3,24 @@
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\AdminController;
 use Illuminate\Auth\Events\PasswordReset;
+use App\Http\Controllers\PasienController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\PasienController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
-
-// Test route to test email sending functionality
-// Route::get('/test-email', function () {
-//     Mail::raw('Ini email test SMTP dari Laravel 12.', function ($message) {
-//         $message->to('ilhamach2020@gmail.com')
-//             ->subject('Test Email SMTP');
-//     });
-
-//     return 'Email terkirim!';
-// });
 
 // This route to serve the home page of the application
 Route::get('/', function () {
@@ -45,8 +39,10 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/register', [SessionController::class, 'userRegis'])
         ->name('register.userRegis');
     Route::get('/forgot-password', function () {
-        return view('auth.forgot-password');
+        return view('auth.forgot-password')->with('title', 'Forgot Password - Pages | NexGenbot Hospital');
     })->name('password.request');
+
+    //forgot password
     Route::post('/forgot-password', function (Request $request) {
         $request->validate(['email' => 'required|email']);
 
@@ -65,6 +61,8 @@ Route::middleware(['guest'])->group(function () {
         ]);
     })->name('password.reset');
 
+
+    //reset password
     Route::post('/reset-password', function (Request $request) {
         $request->validate([
             'token' => 'required',
@@ -117,6 +115,14 @@ Route::middleware(['auth'])->group(function () {
 
 // Fully verified users
 Route::middleware(['auth', 'verified'])->group(function () {
+
+    //route for Data Wilayah
+    Route::get('/get-provinces', [AddressController::class, 'getProvinces']);
+    Route::get('/get-regencies/{province_id}', [AddressController::class, 'getRegencies']);
+    Route::get('/get-districts/{regency_id}', [AddressController::class, 'getDistricts']);
+    Route::get('/get-villages/{district_id}', [AddressController::class, 'getVillages']);
+
+    //route view dashboard & user session
     Route::get('/admin', [AdminController::class, 'index'])
         ->middleware('UserAccess:admin');
     Route::get('/admin/dokter', [AdminController::class, 'dokter'])
@@ -125,8 +131,26 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->middleware('UserAccess:nurse');
     Route::get('/users', [UserController::class, 'index'])
         ->middleware('UserAccess:user');
+
+    //rooute all role    
     Route::get('/users/profile', [UserController::class, 'profile'])
-        ->name('users.profile')->middleware('UserAccess:user');
+        ->name('users.profile')->middleware('UserAccess:user,admin,doctor,nurse');
+    Route::get('/users/account-setting', [UserController::class, 'userAccount'])
+        ->name('users.accountSetting')
+        ->middleware('UserAccess:user,admin,doctor,nurse');
+    Route::put('/users/account-setting', [UserController::class, 'updateAccount'])
+        ->name('users.updateAccount')
+        ->middleware('UserAccess:user,admin,doctor,nurse');
+    Route::get('/users/change-password', [UserController::class, 'changePassword'])
+        ->name('users.changePassword')
+        ->middleware('UserAccess:user,admin,doctor,nurse');
+    Route::put('/users/change-password', [UserController::class, 'updatePassword'])
+        ->middleware('UserAccess:user,admin,doctor,nurse');
+    Route::put('/users/reset-image', [UserController::class, 'resetImage'])
+        ->name('users.resetImage')->middleware('UserAccess:user,admin,doctor,nurse');
+
+
+    //route for pasien
     Route::get('/users/biopasien', [PasienController::class, 'index'])
         ->name('users.biopasien')
         ->middleware('UserAccess:user');
@@ -141,13 +165,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 
-Route::get('/forgot-password', function () {
-    $title = [
-        'title' => 'Forgot Password - Pages | NexGenbot Hospital',
-    ];
-    return view('auth.forgot-password', $title);
-});
-
 Route::get('/404-error', function () {
     $title = [
         'title' => '404 Error - Pages | NexGenbot Hospital',
@@ -156,23 +173,7 @@ Route::get('/404-error', function () {
 });
 
 
+//google auth
+Route::get('/auth/redirect', [SessionController::class, 'googleRedirect'])->name('google.login');
 
-Route::get('/reset-password', function () {
-    $title = [
-        'title' => 'Reset Password - Pages | NexGenbot Hospital',
-    ];
-    return view('auth.reset-password', $title);
-});
-
-
-// //Router forgot password & reset password
-// Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])
-//     ->name('password.request');
-// Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])
-//     ->name('password.email');
-
-// Route::get('/reset-password/{token?}', [ResetPasswordController::class, 'showResetForm'])
-//     ->middleware('guest', 'throttle:0,1')
-//     ->name('password.reset');
-// Route::post('/reset-password', [ResetPasswordController::class, 'resetPassword'])
-//     ->name('password.update');
+Route::get('/auth/google/callback', [SessionController::class, 'googleCallback'])->name('google.callback');

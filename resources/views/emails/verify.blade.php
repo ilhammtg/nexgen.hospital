@@ -11,7 +11,7 @@
                 <table width="600" bgcolor="#ffffff" cellpadding="40" cellspacing="0" style="border-radius: 10px;">
                     <tr>
                         <td align="center">
-                            <img src="{{ asset('storage/logo.png') }}" alt="NexGenbot Hospital" width="150" style="margin-bottom: 20px;">
+                            <img src="https://res.cloudinary.com/dwuqcgyrl/image/upload/v1746979703/1_wbkwzu.png" alt="NexGenbot Hospital" width="150" style="margin-bottom: 10px;">
                         </td>
                     </tr>
                     <tr>

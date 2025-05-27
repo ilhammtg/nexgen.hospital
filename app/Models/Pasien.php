@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Support\Str;
+use App\Models\Wilayah\Provinsi;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -13,13 +14,18 @@ class Pasien extends Model
         return $this->belongsTo(User::class, 'user_id',);
     }
 
+
     // Aktifkan mass-assignment
     protected $fillable = [
-        'user_id',
-        'nama',
         'nik',
-        'no_telepon',
+        'family_phone',
+        'provinsi',
+        'kabupaten',
+        'kecamatan',
+        'kelurahan',
+        'alamat_lengkap',
         'alamat',
+        'umur',
         'tanggal_lahir',
         'jenis_kelamin',
         'no_bpjs',

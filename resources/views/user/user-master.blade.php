@@ -20,5 +20,6 @@
     </div>
 
     @include('template.footer')
+    @yield('scripts')
 </body>
 </html>

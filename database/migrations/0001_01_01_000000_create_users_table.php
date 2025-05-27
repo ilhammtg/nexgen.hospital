@@ -17,8 +17,12 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('image')->nullable();
             $table->enum('role', ['admin', 'doctor', 'nurse', 'user'])->default('user');
             $table->string('password');
+            $table->string('google_id')->nullable();
+            $table->string('google_token')->nullable();
+            $table->string('google_refresh_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

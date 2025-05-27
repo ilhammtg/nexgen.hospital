@@ -14,10 +14,20 @@ return new class extends Migration
         Schema::create('pasiens', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('user_id')->index();
-            $table->string('nama');
             $table->string('nik')->unique();
-            $table->string('no_telepon');
-            $table->string('alamat');
+            $table->string('family_phone');
+
+            // Kolom wilayah tambahan
+            $table->string('provinsi');
+            $table->string('kabupaten');
+            $table->string('kecamatan');
+            $table->string('kelurahan');
+
+            // Alamat lengkap dan alamat gabungan
+            $table->string('alamat_lengkap'); // Alamat input user
+            $table->string('alamat');         // Gabungan wilayah + alamat lengkap
+
+            $table->string('umur');
             $table->date('tanggal_lahir');
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->string('no_bpjs')->nullable();

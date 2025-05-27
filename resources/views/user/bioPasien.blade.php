@@ -1,88 +1,95 @@
 @extends('user.user-master')
 
 @section('content')
-<!-- Content -->
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card mb-4 shadow-sm rounded-3">
+                    <div class="card-body">
+                        <div class="row align-items-center mb-4">
+                            <div class="col-md-2 text-center">
+                                @if ($data->image)
+                                    <img src="{{ asset('storage/user-image/' . $data->image) }}" alt="Foto Profil"
+                                        class="rounded-circle img-fluid" style="width: 80px; height: 80px;">
+                                @else
+                                    <img src="https://ui-avatars.com/api/?name={{ urlencode($data->name) }}&background=0D8ABC&color=fff"
+                                        alt="Avatar" class="rounded-circle img-fluid" style="width: 80px; height: 80px;">
+                                @endif
+                            </div>
 
-     <div class="container-xxl flex-grow-1 container-p-y">
-  <div class="row">
-    <div class="col-xxl">
-      <div class="card mb-4">
-        <div class="card-header d-flex align-items-center justify-content-between">
-          <h5 class="mb-0">Detail Data Pasien</h5>
-        </div>
-        <div class="card-body">
-          
-          <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Name</label>
-            <div class="col-sm-10">
-              <div class="form-control bg-light">{{ $data->name }}</div>
-            </div>
-          </div>
+                            <div class="col-md-10">
+                                <h5 class="mb-1">{{ $data->name }}</h5>
+                                <p class="mb-1">NIK: {{ $data->pasien->nik ?? '-' }}</p>
 
-          <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">NIK</label>
-            <div class="col-sm-10">
-              <div class="form-control bg-light">{{ $data->pasien->nik ?? "-" }}</div>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Phone No</label>
-            <div class="col-sm-10">
-              <div class="form-control bg-light">{{ $data->phone }}</div>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Alamat</label>
-            <div class="col-sm-10">
-              <div class="form-control bg-light" style="min-height: 80px;">{{ $data->pasien->alamat ?? "-" }}</div>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Tanggal Lahir</label>
-            <div class="col-sm-10">
-              <div class="form-control bg-light">{{$data->pasien->tanggal_lahir ?? "-" }}</div>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
-            <div class="col-sm-10">
-              <div class="form-control bg-light">{{$data->pasien->jenis_kelamin ?? "-" }}</div>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label class="col-sm-2 col-form-label">No BPJS</label>
-            <div class="col-sm-10">
-              <div class="form-control bg-light">{{ $data->pasien->no_bpjs ?? "-" }}</div>
-            </div>
-          </div>
-                <div class="row justify-content-end">
-                          <div class="col-sm-10">
-                            <a href="{{ route('users.EditBiopasien') }}" class="btn btn-primary">Edit Data</a>
-                          </div>
+                                @php
+                                    $isComplete =
+                                        $data->pasien &&
+                                        $data->pasien->nik &&
+                                        $data->pasien->umur &&
+                                        $data->pasien->tanggal_lahir &&
+                                        $data->pasien->jenis_kelamin &&
+                                        $data->phone &&
+                                        $data->pasien->family_phone &&
+                                        $data->pasien->alamat;
+                                @endphp
+                                <span class="badge bg-{{ $isComplete ? 'success' : 'warning' }}">
+                                    {{ $isComplete ? 'Lengkap' : 'Belum Lengkap' }}
+                                </span>
+                            </div>
                         </div>
-                      </form>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">No. Telepon</label>
+                                <div class="form-control-plaintext">
+                                    {{ $data->phone ? '0' . $data->phone : '-' }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">No. Keluarga</label>
+                                <div class="form-control-plaintext">
+                                    {{ $data->pasien?->family_phone ? '0' . $data->pasien->family_phone : '-' }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Umur</label>
+                                <div class="form-control-plaintext">{{ $data->pasien->umur ?? '-' }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Tanggal Lahir</label>
+                                <div class="form-control-plaintext">{{ $data->pasien->tanggal_lahir ?? '-' }}</div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Jenis Kelamin</label>
+                                <div class="form-control-plaintext">{{ $data->pasien->jenis_kelamin ?? '-' }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">No. BPJS</label>
+                                <div class="form-control-plaintext">{{ $data->pasien->no_bpjs ?? '-' }}</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Alamat</label>
+                            <div class="form-control-plaintext text-wrap">
+                                {{ $data->pasien->alamat ?? '-' }}
+                            </div>
+                        </div>
+
+                        <div class="text-end">
+                            <a href="{{ route('users.EditBiopasien') }}" class="btn btn-primary">
+                                <i class="bx bx-edit"></i> Edit Data
+                            </a>
+                        </div>
                     </div>
-                  </div>
                 </div>
-                <!-- Basic with Icons -->
-               
-              </div>
-
-              <!-- Multi Column with Form Separator -->
-           
-
-              <!-- Collapsible Section -->
-          
-              <!-- Form with Tabs -->
-          
-              <!-- Form Alignment -->
-            
             </div>
-            <!-- / Content -->
-
-            @endsection
+        </div>
+    </div>
+@endsection
