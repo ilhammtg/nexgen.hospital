@@ -1,8 +1,7 @@
-@extends('admin.admin-master')
+@extends('dokter.dokter-master')
 
 @section('content')
     <!-- Content -->
-
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="row g-6">
             <!-- Card Border Shadow -->
@@ -79,8 +78,7 @@
                 </div>
             </div>
 
-            <h1>Admin Dashboard </h1>
-
+            <h1>Dokter Dashboard </h1>
             <!--/ Card Border Shadow -->
 
             <!-- Vehicles overview -->

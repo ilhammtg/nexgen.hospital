@@ -8,13 +8,18 @@
                     <div class="card-body">
                         <div class="row align-items-center mb-4">
                             <div class="col-md-2 text-center">
-                                @if ($data->image)
-                                    <img src="{{ asset('storage/user-image/' . $data->image) }}" alt="Foto Profil"
-                                        class="rounded-circle img-fluid" style="width: 80px; height: 80px;">
-                                @else
-                                    <img src="https://ui-avatars.com/api/?name={{ urlencode($data->name) }}&background=0D8ABC&color=fff"
-                                        alt="Avatar" class="rounded-circle img-fluid" style="width: 80px; height: 80px;">
-                                @endif
+                                @php
+                                    $userImage =
+                                        !empty($data->image) &&
+                                        file_exists(public_path('storage/user-image/' . $data->image))
+                                            ? asset('storage/user-image/' . $data->image)
+                                            : 'https://ui-avatars.com/api/?name=' .
+                                                urlencode($data->name) .
+                                                '&background=0D8ABC&color=fff';
+                                @endphp
+                                <img src="{{ $userImage }}" alt="Foto Profil {{ $data->name }}"
+                                    class="rounded-circle user-profile-img"
+                                    style="width: 100px; height: 100px; object-fit: cover;" />
                             </div>
 
                             <div class="col-md-10">

@@ -12,7 +12,9 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Password;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\NurseController;
 use Illuminate\Auth\Events\PasswordReset;
+use App\Http\Controllers\DocterController;
 use App\Http\Controllers\PasienController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\SessionController;
@@ -125,9 +127,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //route view dashboard & user session
     Route::get('/admin', [AdminController::class, 'index'])
         ->middleware('UserAccess:admin');
-    Route::get('/admin/dokter', [AdminController::class, 'dokter'])
+    Route::get('/dokter', [DocterController::class, 'index'])
         ->middleware('UserAccess:doctor');
-    Route::get('/admin/nurse', [AdminController::class, 'nurse'])
+    Route::get('/nurse', [NurseController::class, 'index'])
         ->middleware('UserAccess:nurse');
     Route::get('/users', [UserController::class, 'index'])
         ->middleware('UserAccess:user');

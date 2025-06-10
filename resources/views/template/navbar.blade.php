@@ -407,25 +407,44 @@
 
                      <!-- User -->
                      <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                         @php
+                             $userImage =
+                                 !empty($data->image) && file_exists(public_path('storage/user-image/' . $data->image))
+                                     ? asset('storage/user-image/' . $data->image)
+                                     : 'https://ui-avatars.com/api/?name=' .
+                                         urlencode($data->name) .
+                                         '&background=0D8ABC&color=fff';
+                         @endphp
+
                          <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);"
                              data-bs-toggle="dropdown">
                              <div class="avatar avatar-online">
-                                 <img src="{{ !empty($data->image) && file_exists(public_path('storage/user-image/' . $data->image))
-                                     ? asset('storage/user-image/' . $data->image)
-                                     : 'https://ui-avatars.com/api/?name=' . urlencode($data->name) . '&background=0D8ABC&color=fff' }}"
-                                     alt class="rounded-circle" />
+                                 <img src="{{ $userImage }}" alt="Foto Profil {{ $data->name }}"
+                                     class="rounded-circle" style="object-fit: cover;" />
                              </div>
                          </a>
+
                          <ul class="dropdown-menu dropdown-menu-end">
                              <li>
                                  <a class="dropdown-item mt-0" href="{{ route('users.accountSetting') }}">
                                      <div class="d-flex align-items-center">
+                                         @php
+                                             $userImage =
+                                                 !empty($data->image) &&
+                                                 file_exists(public_path('storage/user-image/' . $data->image))
+                                                     ? asset('storage/user-image/' . $data->image)
+                                                     : 'https://ui-avatars.com/api/?name=' .
+                                                         urlencode($data->name) .
+                                                         '&background=0D8ABC&color=fff';
+                                         @endphp
+
                                          <div class="flex-shrink-0 me-2">
                                              <div class="avatar avatar-online">
-                                                 <img src="{{ asset('/storage/user-image/' . $data->image) }}" alt
-                                                     class="rounded-circle" />
+                                                 <img src="{{ $userImage }}" alt="Foto Profil {{ $data->name }}"
+                                                     class="rounded-circle" style="object-fit: cover;" />
                                              </div>
                                          </div>
+
                                          <div class="flex-grow-1">
                                              <h6 class="mb-0">{{ $data->name }}</h6>
                                              <small class="text-muted">{{ $data->role }}</small>
